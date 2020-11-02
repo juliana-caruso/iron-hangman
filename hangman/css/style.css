@@ -2,3 +2,54 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.score {
+  text-align: center;
+}
+
+.man-hanged {
+  text-align: center;
+}
+
+.wrapper {
+  margin: 0 auto;
+  outline: 1px solid red;
+  width: 90%;
+  height: 600px;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: flex-end;
+}
+
+
+.keyboard {
+  outline: 1px solid blue;
+  width: 80%;
+  background-color: gray;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: center;
+  padding: 30px;
+
+}
+
+
+.key {
+outline: 1px solid black;
+background-color: lightgrey;
+width: 50px;
+height: 50px;
+padding: 5px;
+margin: 5px;
+}
+
+.key:hover {
+background-color: lightpink;
+}
+

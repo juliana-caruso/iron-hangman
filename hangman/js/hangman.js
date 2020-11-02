@@ -69,4 +69,13 @@ class HangmanGame {
 
     }
 
+    userGuessedLetter(clickedKey) {
+        this.getGameStatus();
+        this.checkLetter(clickedKey);
+
+
+
+
+    }
+
 }
