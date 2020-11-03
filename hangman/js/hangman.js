@@ -8,9 +8,16 @@ class HangmanGame {
         this.errorsLeft = 15;
 
         console.log(this.wordToGuess);
-        console.log(this.lettersPicked);
+        // console.log(this.lettersPicked);
     }
 
+    startGame() {
+        let startButton = document.querySelectorAll('.start-game');
+        console.log(startButton);
+        startButton.addEventListener('click', function () {
+            console.log('clicked');
+            })
+    }
 
     getRandom() {
         let randomValue = Math.floor(Math.random() * this.hangmanWords.length);
@@ -21,11 +28,11 @@ class HangmanGame {
     checkLetter(letter) {
         this.lettersPicked.push(letter);
         const foundMatch = this.wordToGuess.includes(letter);
-        console.log(foundMatch);
-        console.log(this.wordToGuess, letter);
+        // console.log(foundMatch);
+        // console.log(this.wordToGuess, letter);
 
         if (foundMatch === true) {
-            console.log("the letter picked is in the word: " + letter);
+            // console.log("the letter picked is in the word: " + letter);
             this.lettersGuessed += 1;
             return true;
         } else {
@@ -37,18 +44,21 @@ class HangmanGame {
 
     getWordStatus() {
         let wordStatus = [];
+        // if (!this.lettersPicked) {
+        //     return '_'.repeat(wordStatus.length);
+        // }
+            for (let i = 0; i < this.wordToGuess.length; i++) {    
 
-        for (let i = 0; i < this.wordToGuess.length; i++) {    
-
-            if (this.lettersPicked.includes(this.wordToGuess[i])) {
-                wordStatus.push(this.wordToGuess[i]);
-                console.log("this is the letter: " + this.wordToGuess[i]);
-            } else {
-                wordStatus.push('_');
-                console.log("this is the letter: " + this.wordToGuess[i]);
+                if (this.lettersPicked.includes(this.wordToGuess[i])) {
+                    wordStatus.push(this.wordToGuess[i]);
+                    console.log("Congratulatios! You guessed a letter 😊");
+                } else {
+                    wordStatus.push('_');
+                    console.log("The letter is not in the word 👎🏼");
+                }
             }
-        }
-        console.log(wordStatus);
+        // console.log(wordStatus);
+        document.querySelector('.word-status').innerText = wordStatus.join('');
         return wordStatus;
     }
 
@@ -70,12 +80,9 @@ class HangmanGame {
     }
 
     userGuessedLetter(clickedKey) {
-        this.getGameStatus();
         this.checkLetter(clickedKey);
-
-
-
-
+        this.getWordStatus();
+        this.getGameStatus();
     }
 
 }

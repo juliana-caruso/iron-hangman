@@ -1,31 +1,31 @@
 const hangmanWords = [
-    'variable',
-    'array',
-    'expression',
-    'function',
-    'loop',
-    'object',
-    'method',
-    'operator',
-    'parameter'
+    'VARIABLE',
+    'ARRAY',
+    'EXPRESSION',
+    'FUNCTION',
+    'LOOP',
+    'OBJECT',
+    'METHOD',
+    'OPERATOR',
+    'PARAMETER'
 ];
 
 const hangman = new HangmanGame(hangmanWords);
 hangman.getRandom();
-hangman.checkLetter();
-hangman.getWordStatus();
-hangman.getGameStatus()
+hangman.startGame();
+// hangman.checkLetter();
+// hangman.getGameStatus()
 
 
 
 let keyDiv = document.querySelectorAll('.key');
-console.log(keyDiv);
+// console.log(keyDiv);
 
 keyDiv.forEach(key => {
     key.addEventListener('click', function () {
     let clickedKey = key.innerHTML;
-    console.log("clicked: " + clickedKey);
-    // hangman.checkLetter(clickedKey)
+    console.log("Letter clicked: " + clickedKey);
+    key.classList.add("change-key-color");
     hangman.userGuessedLetter(clickedKey);
     })
 })

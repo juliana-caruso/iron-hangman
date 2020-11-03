@@ -3,53 +3,102 @@ body {
   padding: 0;
 }
 
-.score {
-  text-align: center;
+header {
+  outline: 1px solid yellow;
+  width: 90%;
+  margin: 0 auto;
+  height: 150px;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+  align-content: stretch;
 }
 
-.man-hanged {
-  text-align: center;
+.logo {
+  margin-left: 20px;
+}
+
+.start-game {
+  width: 250px;
+  height: 60px;
+  margin-right: 20px;
+  font-size: 25px;
 }
 
 .wrapper {
-  margin: 0 auto;
+  margin: 30px auto;
   outline: 1px solid red;
   width: 90%;
   height: 600px;
   display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
-	justify-content: center;
-	align-items: stretch;
-	align-content: flex-end;
+	justify-content: flex-start;
+	align-items: center;
+  align-content: stretch;
+  z-index: -1;
 }
 
+.word-status {
+  text-align: center;
+  font-size: 50px;
+  margin: 0;
+  letter-spacing: 10px;
+}
+
+.man-hanged {
+  outline: 1px dashed blue;
+  text-align: center;
+  height: 58%;
+  width: 100%;
+}
+
+.keyboard-wrapper{
+  display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 75%
+}
 
 .keyboard {
   outline: 1px solid blue;
-  width: 80%;
-  background-color: gray;
+  width: 72%;
+  background-color: #c6c6c6;
   display: flex;
-	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
-	align-items: stretch;
-	align-content: center;
-  padding: 30px;
-
+  padding: 5px;
+  border-radius: 10px;
+  z-index: -1;
 }
 
 
 .key {
-outline: 1px solid black;
-background-color: lightgrey;
-width: 50px;
-height: 50px;
+/* outline: 1px solid black; */
+border: 2px solid black;
+background-color: #f3f3f3;
+width: 40px;
+height: 40px;
 padding: 5px;
-margin: 5px;
+margin: 2px;
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: space-around;
+font-size: 20px;
 }
 
 .key:hover {
 background-color: lightpink;
+}
+
+.change-key-color {
+  background-color: red;
+}
+
+.change-key-color:hover {
+  background-color: red;
 }
 
