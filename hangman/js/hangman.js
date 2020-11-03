@@ -1,4 +1,3 @@
-
 class HangmanGame {
     constructor(hangmanWords) {
         this.hangmanWords = hangmanWords;
@@ -12,12 +11,10 @@ class HangmanGame {
     }
 
     startGame() {
-        let startButton = document.querySelectorAll('.start-game');
-        console.log(startButton);
-        startButton.addEventListener('click', function () {
-            console.log('clicked');
-            })
-    }
+        clearCanvas()
+        step = 0
+        console.log(this.getWordStatus().length);
+     }
 
     getRandom() {
         let randomValue = Math.floor(Math.random() * this.hangmanWords.length);
@@ -37,18 +34,16 @@ class HangmanGame {
             return true;
         } else {
             this.errorsLeft -= 1;
-            console.log("you have only " + this.errorsLeft + " errors left")
+            console.log("you have only " + this.errorsLeft + " errors left");
+            Draw(draws[step++]);
             return false;
         }
     }
 
     getWordStatus() {
         let wordStatus = [];
-        // if (!this.lettersPicked) {
-        //     return '_'.repeat(wordStatus.length);
-        // }
+        
             for (let i = 0; i < this.wordToGuess.length; i++) {    
-
                 if (this.lettersPicked.includes(this.wordToGuess[i])) {
                     wordStatus.push(this.wordToGuess[i]);
                     console.log("Congratulatios! You guessed a letter 😊");

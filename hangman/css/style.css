@@ -4,7 +4,7 @@ body {
 }
 
 header {
-  outline: 1px solid yellow;
+  /* outline: 1px solid yellow; */
   width: 90%;
   margin: 0 auto;
   height: 150px;
@@ -29,16 +29,15 @@ header {
 
 .wrapper {
   margin: 30px auto;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   width: 90%;
-  height: 600px;
+  height: 800px;
   display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: center;
   align-content: stretch;
-  z-index: -1;
 }
 
 .word-status {
@@ -49,10 +48,35 @@ header {
 }
 
 .man-hanged {
-  outline: 1px dashed blue;
+  /* outline: 1px dashed blue; */
   text-align: center;
-  height: 58%;
+  height: 68%;
   width: 100%;
+  display: flex;
+	/* flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: stretch;
+  align-content: stretch; */
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+
+}
+
+#hangman {
+  /* outline: 1px solid green; */
+  display: flex;
+  padding: 80px 80px;
+}
+
+#game-status {
+  /* outline: 1px solid pink; */
+  width: 300px;
+  height: 400px;
 }
 
 .keyboard-wrapper{
@@ -63,7 +87,7 @@ header {
 }
 
 .keyboard {
-  outline: 1px solid blue;
+  /* outline: 1px solid blue; */
   width: 72%;
   background-color: #c6c6c6;
   display: flex;
@@ -71,9 +95,7 @@ header {
 	justify-content: center;
   padding: 5px;
   border-radius: 10px;
-  z-index: -1;
 }
-
 
 .key {
 /* outline: 1px solid black; */
