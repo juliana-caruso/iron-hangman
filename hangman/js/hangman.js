@@ -5,8 +5,6 @@ class HangmanGame {
         this.lettersPicked = [];
         this.lettersGuessed = 0;
         this.errorsLeft = 8;
-
-        // console.log(this.lettersPicked);
     }
 
     startGame() {
@@ -19,31 +17,33 @@ class HangmanGame {
         document.querySelector(".message").innerText = "Pick a letter using the keyboard below.";
         this.errorsLeft = 8;
         this.lettersGuessed = 0;
+        document.querySelector(".keyboard-wrapper").classList.remove("hide");
      }
 
     getRandom() {
         let randomValue = Math.floor(Math.random() * this.hangmanWords.length);
         return this.hangmanWords[randomValue];
     };
-  
     
     checkLetter(letter) {
-        this.lettersPicked.push(letter);
-        const foundMatch = this.wordToGuess.includes(letter);
-        // console.log(foundMatch);
-        // console.log(this.wordToGuess, letter);
-
-        if (foundMatch === true) {
-            // console.log("the letter picked is in the word: " + letter);
-            this.lettersGuessed += 1;
-            document.querySelector(".message").innerText = "Congratulatios! You guessed a letter 😊";
-            return true;
+        if (this.lettersPicked.includes(letter)){
+            return 'This letter was already picked';
         } else {
-            this.errorsLeft -= 1;
-            document.querySelector(".message").innerText = "The letter is not in the word 👎🏼";
+            this.lettersPicked.push(letter);
+            const foundMatch = this.wordToGuess.includes(letter);
 
-            Draw(draws[step++]);
-            return false;
+            if (foundMatch === true) {
+                this.lettersGuessed += 1;
+                document.querySelector(".message").innerText = "Well done! You guessed a letter 😊";
+                return true;
+            } else {
+                this.errorsLeft -= 1;
+                document.querySelector(".message").innerText = "The letter is not in the word 👎🏼";
+                
+                // draw the hangman on canvas
+                Draw(draws[step++]);
+                return false;
+            }
         }
     }
 
@@ -57,28 +57,29 @@ class HangmanGame {
                     displayWord.push('_');
                 }
             }
-
         document.querySelector('.word-status').innerText = displayWord.join('');
-        //this.printMessage();
         return displayWord;
     }
 
     getGameStatus(){
         let gameStatus = '';
+        let addHide = document.querySelector(".keyboard-wrapper");
 
     // completed
         if (this.getWordStatus().indexOf('_') === -1){
-            gameStatus = 'You won the game!';
+            document.querySelector(".message").innerText = "";
+            gameStatus = true;
+            addHide.classList.add("hide");
+            document.querySelector(".message").innerText = "Congratulations! You saved the man! Click the button above to start a new game.";
         }
     // lost
         else if (this.errorsLeft === 0) {
-            gameStatus = 'Sorry, you\'ve lost';
+            document.querySelector(".message").innerText = "";
+            gameStatus = false;
+            addHide.classList.add("hide");
+            document.querySelector(".message").innerText = "You lost! The man was hanged! Click the button above to start a new game.";
         }
-    // playing
-        else {
-            gameStatus = 'Keep trying';
-        }
-
+        return gameStatus;
     }
 
     userGuessedLetter(clickedKey) {

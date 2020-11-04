@@ -25,7 +25,6 @@ keyDiv.forEach(key => {
     })
 })
 
-
 let startButton = document.querySelector('.start-game');
         
     startButton.addEventListener('click', function () {
