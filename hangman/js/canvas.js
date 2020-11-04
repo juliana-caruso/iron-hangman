@@ -56,10 +56,13 @@ const canvas = document.getElementById('hangman');
             context.stroke();
             break;
     
-          case 'rightFoot':
+          case 'feet':
              context.beginPath();
              context.moveTo(82, 190);
              context.lineTo(70, 185);
+             context.stroke();
+             context.moveTo(122, 190);
+             context.lineTo(135, 185);
              context.stroke();
           break;
     
@@ -70,12 +73,6 @@ const canvas = document.getElementById('hangman');
             context.stroke();
           break;
     
-          case 'leftFoot':
-             context.beginPath();
-             context.moveTo(122, 190);
-             context.lineTo(135, 185);
-             context.stroke();
-          break;
        } 
     }
     
@@ -87,15 +84,7 @@ const canvas = document.getElementById('hangman');
        'leftHarm',
        'rightLeg',
        'leftLeg',
-       'rightFoot',
-       'leftFoot',
+       'feet',
     ]
     let step = 0;
     
-    
-    // const next = document.getElementById('next')
-    
-    // next.addEventListener('click', function() {
-    //   Draw(draws[step++])
-    //   if (undefined === draws[step]) this.disabled = true;
-    // });  

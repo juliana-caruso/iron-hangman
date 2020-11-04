@@ -4,15 +4,16 @@ class HangmanGame {
         this.wordToGuess = this.getRandom().split('');
         this.lettersPicked = [];
         this.lettersGuessed = 0;
-        this.errorsLeft = 15;
+        this.errorsLeft = 8;
 
         console.log(this.wordToGuess);
         // console.log(this.lettersPicked);
     }
 
     startGame() {
-        clearCanvas()
-        step = 0
+        clearCanvas();
+        this.resetKeyboard();
+        this.getRandom();
         console.log(this.getWordStatus().length);
      }
 
@@ -78,6 +79,12 @@ class HangmanGame {
         this.checkLetter(clickedKey);
         this.getWordStatus();
         this.getGameStatus();
+    }
+
+    resetKeyboard() {
+        keyDiv.forEach(key => {
+            key.classList.remove("change-key-color");
+        })
     }
 
 }
