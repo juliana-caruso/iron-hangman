@@ -29,7 +29,7 @@ header {
 
 .wrapper {
   margin: 30px auto;
-  /* outline: 1px solid red; */
+  outline: 1px solid red;
   width: 90%;
   height: 800px;
   display: flex;
@@ -38,6 +38,12 @@ header {
 	justify-content: flex-start;
 	align-items: center;
   align-content: stretch;
+}
+
+.top {
+  outline: 1px solid pink;
+  width: 100%;
+  height: 60px;
 }
 
 .word-status {
@@ -68,15 +74,15 @@ header {
 }
 
 #hangman {
-  /* outline: 1px solid green; */
+  outline: 1px solid green;
   display: flex;
   padding: 80px 80px;
 }
 
 #game-status {
-  /* outline: 1px solid pink; */
-  width: 300px;
-  height: 400px;
+  outline: 1px solid pink;
+  width: 400px;
+  height: 420px;
 }
 
 .keyboard-wrapper{

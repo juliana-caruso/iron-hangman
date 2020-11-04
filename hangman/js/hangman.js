@@ -6,15 +6,19 @@ class HangmanGame {
         this.lettersGuessed = 0;
         this.errorsLeft = 8;
 
-        console.log(this.wordToGuess);
         // console.log(this.lettersPicked);
     }
 
     startGame() {
         clearCanvas();
         this.resetKeyboard();
-        this.getRandom();
-        console.log(this.getWordStatus().length);
+        this.wordToGuess = this.getRandom().split('');
+        this.lettersPicked = [];
+        this.getWordStatus();
+        console.log(this.wordToGuess);
+        document.querySelector(".message").innerText = "Pick a letter using the keyboard below.";
+        this.errorsLeft = 8;
+        this.lettersGuessed = 0;
      }
 
     getRandom() {
@@ -32,45 +36,47 @@ class HangmanGame {
         if (foundMatch === true) {
             // console.log("the letter picked is in the word: " + letter);
             this.lettersGuessed += 1;
+            document.querySelector(".message").innerText = "Congratulatios! You guessed a letter 😊";
             return true;
         } else {
             this.errorsLeft -= 1;
-            console.log("you have only " + this.errorsLeft + " errors left");
+            document.querySelector(".message").innerText = "The letter is not in the word 👎🏼";
+
             Draw(draws[step++]);
             return false;
         }
     }
 
     getWordStatus() {
-        let wordStatus = [];
-        
+        let displayWord = [];
+
             for (let i = 0; i < this.wordToGuess.length; i++) {    
                 if (this.lettersPicked.includes(this.wordToGuess[i])) {
-                    wordStatus.push(this.wordToGuess[i]);
-                    console.log("Congratulatios! You guessed a letter 😊");
+                    displayWord.push(this.wordToGuess[i]);
                 } else {
-                    wordStatus.push('_');
-                    console.log("The letter is not in the word 👎🏼");
+                    displayWord.push('_');
                 }
             }
-        // console.log(wordStatus);
-        document.querySelector('.word-status').innerText = wordStatus.join('');
-        return wordStatus;
+
+        document.querySelector('.word-status').innerText = displayWord.join('');
+        //this.printMessage();
+        return displayWord;
     }
 
     getGameStatus(){
+        let gameStatus = '';
 
     // completed
         if (this.getWordStatus().indexOf('_') === -1){
-            console.log('You won the game!')
+            gameStatus = 'You won the game!';
         }
     // lost
         else if (this.errorsLeft === 0) {
-            console.log('Sorry, you\'ve lost');
+            gameStatus = 'Sorry, you\'ve lost';
         }
     // playing
         else {
-            console.log('Keep trying');
+            gameStatus = 'Keep trying';
         }
 
     }
