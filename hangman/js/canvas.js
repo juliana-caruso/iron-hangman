@@ -9,7 +9,7 @@ const context = canvas.getContext("2d");
   Draw = (part) => {
     switch (part) {
        case 'gallows' :
-         context.strokeStyle = '#000';
+         context.strokeStyle = '#fff';
          context.lineWidth = 5; 
          context.beginPath();
          context.moveTo(175, 225);
