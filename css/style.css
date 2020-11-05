@@ -40,13 +40,22 @@ header {
   font-size: 35px;
 }
 
-/* .gameOver {
-  outline: 1px double blue;
-  width: 100%;
-  height: 800px;
-  position: 150 0;
-  z-index: 1;
-} */
+button {
+  align-self:center;
+  background:#fff;
+  transition:all .5s ease;
+  color:#000;
+  font-size:2rem;
+  letter-spacing:1px;
+  outline:none;
+  box-shadow: 20px 38px 34px -26px rgba(247, 241, 241, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+button:hover {
+  box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+  border:solid 7px #e7622d;
+}
 
 .gameOver h1 {
   position: absolute;
@@ -64,7 +73,7 @@ header {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   margin: 30px auto;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   max-width: 1000px;
   width: 100%;
   display: flex;
@@ -132,7 +141,7 @@ img.hideImg {
 }
 
 .red {
-  color: red;
+  color: #e7622d;
 }
 
 .keyboard-wrapper{
@@ -170,13 +179,13 @@ font-size: 30px;
 }
 
 .key:hover {
-background-color: lightpink;
+background-color: #e4a085;
 }
 
 .change-key-color {
-  background-color: red;
+  background-color: #e7622d;
 }
 
 .change-key-color:hover {
-  background-color: red;
+  background-color: #e7622d;
 }
