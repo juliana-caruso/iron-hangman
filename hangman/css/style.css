@@ -115,11 +115,24 @@ header {
   height: 300px;
 }
 
+.happy, .sad {
+  width: 100px;
+}
+
+.hideImg {
+  display: none;
+}
+
 .message {
   font-size: 50px;
-  padding: 0px 10px;
-  line-height: 70px;
+  padding: 10px 10px;
+  line-height: 60px;
   color: #fff;
+  margin: 0px;
+}
+
+.red {
+  color: red;
 }
 
 .keyboard-wrapper{

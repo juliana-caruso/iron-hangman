@@ -18,6 +18,10 @@ class HangmanGame {
         this.errorsLeft = 8;
         this.lettersGuessed = 0;
         document.querySelector(".keyboard-wrapper").classList.remove("hide");
+        document.querySelector('.word-status').classList.remove("red");
+        document.querySelector(".happy").classList.add("hideImg");
+        document.querySelector(".sad").classList.add("hideImg");
+        document.querySelector(".thumbs").innerHTML="";
      }
 
     getRandom() {
@@ -26,6 +30,9 @@ class HangmanGame {
     };
     
     checkLetter(letter) {
+        const message = document.querySelector(".message");
+        const thumbs = document.querySelector(".thumbs");
+        
         if (this.lettersPicked.includes(letter)){
             return 'This letter was already picked';
         } else {
@@ -34,12 +41,14 @@ class HangmanGame {
 
             if (foundMatch === true) {
                 this.lettersGuessed += 1;
-                document.querySelector(".message").innerText = "Well done! You guessed a letter 😊";
+                message.innerText = "Well done! You guessed a letter";
+                thumbs.innerHTML="<img src=\"images/thumbs-up.png\">";
                 return true;
             } else {
                 this.errorsLeft -= 1;
-                document.querySelector(".message").innerText = "The letter is not in the word 👎🏼";
-                
+                message.innerText = "The letter is not in the word";
+                thumbs.innerHTML="<img src=\"images/thumbs-down.png\">";
+
                 // draw the hangman on canvas
                 Draw(draws[step++]);
                 return false;
@@ -64,20 +73,29 @@ class HangmanGame {
     getGameStatus(){
         let gameStatus = '';
         let addHide = document.querySelector(".keyboard-wrapper");
+        const happy = document.querySelector(".happy");
+        const sad = document.querySelector(".sad");
 
     // completed
         if (this.getWordStatus().indexOf('_') === -1){
-            document.querySelector(".message").innerText = "";
             gameStatus = true;
+            document.querySelector(".thumbs").innerHTML="";
+            document.querySelector(".message").innerText = "";
             addHide.classList.add("hide");
             document.querySelector(".message").innerText = "Congratulations! You saved the man!";
+            happy.classList.remove("hideImg");
         }
     // lost
         else if (this.errorsLeft === 0) {
-            document.querySelector(".message").innerText = "";
             gameStatus = false;
+            document.querySelector(".thumbs").innerHTML="";
+            document.querySelector(".message").innerText = "";
             addHide.classList.add("hide");
-            document.querySelector(".message").innerText = "You lost! The man was hanged! Click the button above to start a new game.";
+            document.querySelector(".message").innerText = "You lost! The man was hanged! ";
+            document.querySelector('.word-status').innerText = this.wordToGuess.join('');
+            document.querySelector('.word-status').innerText = this.wordToGuess.join('');
+            document.querySelector('.word-status').classList.add("red");
+            sad.classList.remove("hideImg");
         }
         return gameStatus;
     }

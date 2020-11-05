@@ -1,13 +1,23 @@
 const hangmanWords = [
     'VARIABLE',
-    'ARRAY',
     'EXPRESSION',
     'FUNCTION',
-    'LOOP',
     'OBJECT',
     'METHOD',
     'OPERATOR',
-    'PARAMETER'
+    'PARAMETER',
+    'COMMENT',
+    'IDENTIFIER',
+    'BOOLEAN',
+    'CONDITION',
+    'ITERATION',
+    'CONDITION',
+    'SWITCH',
+    'INTEGER',
+    'DECLARATION',
+    'DOCUMENT',
+    'STRING',
+    'UNDEFINED',
 ];
 
 const hangman = new HangmanGame(hangmanWords);
