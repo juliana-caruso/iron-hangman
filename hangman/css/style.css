@@ -119,7 +119,7 @@ header {
   width: 100px;
 }
 
-.hideImg {
+img.hideImg {
   display: none;
 }
 
