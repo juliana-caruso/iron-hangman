@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'djb_chalk_it_upregular';
-  src: url('/fonts/djb_chalk_it_up-webfont.woff') format('woff2'),
-       url('/fonts/djb_chalk_it_up-webfont.woff2') format('woff');
+  src: url('../fonts/djb_chalk_it_up-webfont.woff') format('woff2'),
+       url('../fonts/djb_chalk_it_up-webfont.woff2') format('woff');
   font-weight: normal;
   font-style: normal;
 
@@ -60,7 +60,7 @@ header {
 }
 
 .wrapper {
-  background-image:url('/images/blackboard.png');
+  background-image:url(../images/blackboard.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   margin: 30px auto;
