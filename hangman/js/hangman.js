@@ -14,7 +14,7 @@ class HangmanGame {
         this.lettersPicked = [];
         this.getWordStatus();
         console.log(this.wordToGuess);
-        document.querySelector(".message").innerText = "Pick a letter using the keyboard below.";
+        document.querySelector(".message").innerText = "Pick a letter using the keyboard below ↓";
         this.errorsLeft = 8;
         this.lettersGuessed = 0;
         document.querySelector(".keyboard-wrapper").classList.remove("hide");
@@ -70,7 +70,7 @@ class HangmanGame {
             document.querySelector(".message").innerText = "";
             gameStatus = true;
             addHide.classList.add("hide");
-            document.querySelector(".message").innerText = "Congratulations! You saved the man! Click the button above to start a new game.";
+            document.querySelector(".message").innerText = "Congratulations! You saved the man!";
         }
     // lost
         else if (this.errorsLeft === 0) {
