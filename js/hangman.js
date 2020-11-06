@@ -91,7 +91,7 @@ class HangmanGame {
             document.querySelector(".thumbs").innerHTML="";
             document.querySelector(".message").innerText = "";
             addHide.classList.add("hide");
-            document.querySelector(".message").innerText = "You lost! The man has been hanged! ";
+            document.querySelector(".message").innerText = "You lost! The man has been hanged!";
             document.querySelector('.word-status').innerText = this.wordToGuess.join('');
             document.querySelector('.word-status').innerText = this.wordToGuess.join('');
             document.querySelector('.word-status').classList.add("red");
